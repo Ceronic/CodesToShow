@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AutoPlace : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class AutoPlace : MonoBehaviour
     private void Awake()
     {
         _sfx = GetComponent<Sfx>();
-        _playerController = FindObjectOfType<PlayerController>(); // To Fix Sound Bug in AutoPlace Script... patchworks *Rob*
+        _playerController = FindObjectOfType<PlayerController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,14 +22,12 @@ public class AutoPlace : MonoBehaviour
         if (other.gameObject == theObject && itemInPlace == false)
         {
             SetPlaceObject(theObject);
-            //Added SFX On Slotted In Object
             _sfx.PlayRandomSfx();
         }
 
         if (other.gameObject == theObject2 && itemInPlace == false)
         {
             SetPlaceObject(theObject2);
-            //Added SFX On Slotted In Object
             _sfx.PlayRandomSfx();
         }
 
